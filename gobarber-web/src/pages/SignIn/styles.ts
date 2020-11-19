@@ -18,13 +18,17 @@ export const Content = styled.div`
   width: 100%;
   max-width: 700px;
 
-  a {
+  > a {
     justify-content: center;
     color: #ff9000;
+    transition: color 0.2s;
+    &:hover {
+      color: ${shade(0.2, '#ff9000')};
+    }
   }
 
   svg {
-    margin-right: 23px;
+    margin-right: 16px;
   }
 
   form {
@@ -38,38 +42,13 @@ export const Content = styled.div`
       margin-bottom: 24px;
     }
 
-    input {
-      height: 56px;
-      width: 340px;
-      color: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      background: #232129;
-      border: 2px solid #232129;
-
-      & + input {
-        margin-top: 8px;
-      }
-      & + button {
-        margin-top: 24px;
-      }
-    }
     a {
       margin-top: 24px;
-      color: #fff;
-    }
+      color: #f4ede8;
 
-    button {
-      background: #ff9000;
-      height: 56px;
-      width: 340px;
-      border-radius: 10px;
-      border: none;
-      margin-bottom: 24px;
-      transition: background-color 0.2s;
-
+      transition: color 0.2s;
       &:hover {
-        background-color: ${shade(0.2, '#ff9000')};
+        color: ${shade(0.2, '#f4ede8')};
       }
     }
   }
