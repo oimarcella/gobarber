@@ -22,5 +22,13 @@ export const Container = styled.div`
     &::placeholder {
       color: #666360;
     }
+
+    &::-webkit-autofill,
+    &::-webkit-autofill:hover,
+    &::-webkit-autofill:focus,
+    &::-webkit-autofill:active {
+      background: #232129;
+      -webkit-text-fill-color: #f4ede8;
+    }
   }
 `;
