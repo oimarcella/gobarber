@@ -24,6 +24,7 @@ const SignIn: React.FC = () => {
   const [password, setPassword] = useState('');
   const [login, setLogin] = useState<UserData>({} as UserData);
 
+  console.log('login vaZIO', login);
   const handleLogin = async (
     event: FormEvent<HTMLFormElement>,
   ): Promise<void> => {
@@ -34,15 +35,13 @@ const SignIn: React.FC = () => {
     setLogin(responseLogin.data);
   };
 
-  console.log('Olá', login.user.name);
-
   return (
     <>
       <Container>
         <Content>
           <img src={logoImg} alt="GoBarber logo" />
           <form onSubmit={handleLogin}>
-            <h1>Faça seu login</h1>
+            {login && <h1>{login.user.name}</h1>}
 
             <Input
               name="email"
