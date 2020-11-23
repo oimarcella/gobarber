@@ -10,15 +10,31 @@ import Input from '../../components/Input/index';
 
 import { Container, Background, Content } from './styles';
 
+interface UserData {
+  authenticationToken: string;
+  user: {
+    id: string;
+    name: string;
+    email: string;
+  };
+}
+
 const SignIn: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [login, setLogin] = useState<UserData>({} as UserData);
 
-  const handleLogin = (event: FormEvent<HTMLFormElement>): void => {
+  const handleLogin = async (
+    event: FormEvent<HTMLFormElement>,
+  ): Promise<void> => {
     event.preventDefault();
-    console.log('handleLogin() called');
-    console.log(email, password);
+
+    const responseLogin = await api.post('/sessions/', { email, password });
+    console.log('Imprimindo', responseLogin.data);
+    setLogin(responseLogin.data);
   };
+
+  console.log('Olá', login.user.name);
 
   return (
     <>

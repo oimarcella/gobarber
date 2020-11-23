@@ -23,12 +23,13 @@ export const Container = styled.div`
       color: #666360;
     }
 
-    &::-webkit-autofill,
-    &::-webkit-autofill:hover,
-    &::-webkit-autofill:focus,
-    &::-webkit-autofill:active {
-      background: #232129;
-      -webkit-text-fill-color: #f4ede8;
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      box-shadow: 0 0 0px 1000px #232129 inset;
+      transition: 'color 9999s ease-out, background-color 9999s ease-out';
+      transition-delay: 9999s;
     }
   }
 `;
