@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
+import { FiMail, FiLock, FiUser, FiArrowLeft } from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -10,7 +10,7 @@ import Input from '../../components/Input/index';
 
 import { Container, Background, Content } from './styles';
 
-const SignIn: React.FC = () => {
+const SignUp: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,11 +25,18 @@ const SignIn: React.FC = () => {
   return (
     <>
       <Container>
+        <Background />
         <Content>
           <img src={logoImg} alt="GoBarber logo" />
           <form onSubmit={handleLogin}>
-            <h1>Faça seu Login</h1>
+            <h1>Faça seu cadastro</h1>
 
+            <Input
+              name="name"
+              icon={FiUser}
+              placeholder="Nome"
+              onChange={e => setEmail(e.target.value)}
+            />
             <Input
               name="email"
               icon={FiMail}
@@ -43,19 +50,15 @@ const SignIn: React.FC = () => {
               placeholder="Senha"
               onChange={e => setPassword(e.target.value)}
             />
-            <Button type="submit">Entrar</Button>
-
-            <a href="forgot">Esqueci minha senha</a>
+            <Button type="submit">Cadastrar</Button>
           </form>
-
-          <a href="login">
-            <FiLogIn />
-            Criar conta
+          <a href="home">
+            <FiArrowLeft />
+            Voltar para logon
           </a>
         </Content>
-        <Background />
       </Container>
     </>
   );
 };
-export default SignIn;
+export default SignUp;

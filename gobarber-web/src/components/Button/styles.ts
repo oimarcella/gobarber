@@ -8,7 +8,6 @@ export const Container = styled.button`
   border-radius: 10px;
   border: none;
   margin-top: 16px;
-  margin-bottom: 24px;
   transition: background-color 0.2s;
 
   &:hover {

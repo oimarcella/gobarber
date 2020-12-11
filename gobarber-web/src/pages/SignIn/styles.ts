@@ -12,9 +12,9 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  place-content: center;
-
   align-items: center;
+  align-content: center;
+  place-content: center;
   width: 100%;
   max-width: 700px;
 
@@ -32,18 +32,18 @@ export const Content = styled.div`
   }
 
   form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 80px;
+    margin: 80px 0;
+    width: 340px;
+    text-align: center;
 
     h1 {
-      margin-top: 80px;
+      margin-bottom: 24px;
+    }
+    button {
       margin-bottom: 24px;
     }
 
     a {
-      margin-top: 24px;
       color: #f4ede8;
 
       transition: color 0.2s;
@@ -56,6 +56,6 @@ export const Content = styled.div`
 
 export const Background = styled.div`
   flex: 1;
-  background: url(${signInBackgroundImg}) no-repeat center;
   background-size: cover;
+  background: url(${signInBackgroundImg}) no-repeat center;
 `;

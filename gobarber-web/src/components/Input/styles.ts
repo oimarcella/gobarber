@@ -13,6 +13,10 @@ export const Container = styled.div`
     margin-top: 8px;
   }
 
+  svg {
+    margin-right: 10px;
+  }
+
   input {
     flex: 1;
     color: #f4ede8;
