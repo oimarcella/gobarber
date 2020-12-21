@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   isFocused: boolean;
-  hasError: string;
+  isFilled: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -28,10 +28,9 @@ export const Container = styled.div<ContainerProps>`
     `}
 
   ${props =>
-    props.hasError &&
+    props.isFilled &&
     css`
-      color: #cd352e;
-      border: 2px solid #cd352e;
+      color: #ff9000;
     `}
 
   input {
