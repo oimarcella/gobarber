@@ -1,7 +1,8 @@
-import React, { useState, FormEvent } from 'react';
+import React, { FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
-
-import api from '../../services/api';
+import { Form } from '@unform/web';
+// import api from '../../services/api';
 
 import logoImg from '../../assets/logo.svg';
 
@@ -11,15 +12,9 @@ import Input from '../../components/Input/index';
 import { Container, Background, Content } from './styles';
 
 const SignIn: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const handleLogin = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-
-    api.post('/sessions/', { email, password }).then(response => {
-      localStorage.setItem('@GoBarber:login', JSON.stringify(response.data));
-    });
+    console.log('handleLogin');
   };
 
   return (
@@ -27,31 +22,25 @@ const SignIn: React.FC = () => {
       <Container>
         <Content>
           <img src={logoImg} alt="GoBarber logo" />
-          <form onSubmit={handleLogin}>
+          <Form onSubmit={handleLogin}>
             <h1>Faça seu Login</h1>
 
-            <Input
-              name="email"
-              icon={FiMail}
-              placeholder="E-mail"
-              onChange={e => setEmail(e.target.value)}
-            />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
             <Input
               name="password"
               icon={FiLock}
               type="password"
               placeholder="Senha"
-              onChange={e => setPassword(e.target.value)}
             />
             <Button type="submit">Entrar</Button>
 
             <a href="forgot">Esqueci minha senha</a>
-          </form>
+          </Form>
 
-          <a href="login">
+          <Link to="/signUp">
             <FiLogIn />
             Criar conta
-          </a>
+          </Link>
         </Content>
         <Background />
       </Container>
