@@ -1,10 +1,12 @@
 import { ValidationError } from 'yup';
-import { getValueAndUnit } from 'polished';
 
 interface Errors {
   [key: string]: string;
 }
 
+// returns a object with all erros occurred
+// containing name field and its
+// error message
 export default function getValidationErrors(err: ValidationError): Errors {
   const validationErrors: Errors = {};
 

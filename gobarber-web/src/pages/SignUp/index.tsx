@@ -15,28 +15,25 @@ import { Container, Background, Content } from './styles';
 
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  console.log({ formRef });
 
   const handleSubmit = useCallback(async (data: object) => {
     try {
       formRef.current?.setErrors({});
 
       const schema = Yup.object().shape({
-        name: Yup.string().required('Nome é obrigatório'),
+        name: Yup.string().required('Nome  obrigatório'),
         email: Yup.string()
-          .required('E-mail é obrigatório')
-          .email('Digite um email válido. Exemplo: go@barber.com'),
+          .required('E-mail obrigatório')
+          .email('Email inválido'),
         password: Yup.string()
           .required('Senha é obrigatória ')
-          .min(6, 'Senha deve possuir no mínimo 6 caracteres'),
+          .min(6, 'No mínimo 6 dígitos'),
       });
 
       await schema.validate(data, {
         abortEarly: false,
       });
     } catch (err) {
-      console.log({ err });
-
       const errors = getValidationErrors(err);
 
       formRef.current?.setErrors(errors);
@@ -53,12 +50,7 @@ const SignUp: React.FC = () => {
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Faça seu cadastro</h1>
 
-            <Input
-              name="name"
-              icon={FiUser}
-              placeholder="Nome"
-              onChange={handleSubmit}
-            />
+            <Input name="name" icon={FiUser} placeholder="Nome" />
             <Input name="email" icon={FiMail} placeholder="E-mail" />
             <Input
               name="password"
