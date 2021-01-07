@@ -12,6 +12,9 @@ export default createGlobalStyle`
     color:#fff;
     -webkit-font-smoothing:antialiased;
   }
+  a{
+    text-decoration: none;
+  }
 
   body,input,button{
     font-family:'Roboto Slab', serif;

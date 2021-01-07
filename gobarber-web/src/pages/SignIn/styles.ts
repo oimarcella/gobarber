@@ -19,7 +19,6 @@ export const Content = styled.div`
   max-width: 700px;
 
   > a {
-    justify-content: center;
     color: #ff9000;
     transition: color 0.2s;
     &:hover {
@@ -45,7 +44,6 @@ export const Content = styled.div`
 
     a {
       color: #f4ede8;
-
       transition: color 0.2s;
       &:hover {
         color: ${shade(0.2, '#f4ede8')};
