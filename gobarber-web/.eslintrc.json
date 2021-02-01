@@ -36,7 +36,8 @@
         ]
       }
     ],
-    "no-unused-expressions": "off",
+    "no-unused-expressions": "warn",
+    "@typescript-eslint/no-unused-vars": "off",
     "no-use-before-define": "off",
     "import/prefer-default-export": "off",
     "camelcase": "off",
