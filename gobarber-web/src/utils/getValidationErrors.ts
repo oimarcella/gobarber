@@ -1,12 +1,13 @@
 import { ValidationError } from 'yup';
 
+// returns a object with all erros occurred
+// containing name field and its
+// error message
+
 interface Errors {
   [key: string]: string;
 }
 
-// returns a object with all erros occurred
-// containing name field and its
-// error message
 export default function getValidationErrors(err: ValidationError): Errors {
   const validationErrors: Errors = {};
 
