@@ -30,7 +30,6 @@ const AuthProvider: React.FC = ({ children }) => {
     const response = await api.post('/sessions', { email, password });
 
     const { authenticationToken, user } = response.data;
-    console.log('Logado');
     localStorage.setItem('@GoBarber:token', authenticationToken);
     localStorage.setItem('@GoBarber:user', JSON.stringify(user));
 
