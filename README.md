@@ -1,5 +1,4 @@
 <h1 align="center">GoBarber</h1>
-<h5 align="center"> 🚀Este projeto está sendo desenvolvido durante o Bootcamp GoStack 11 </h5>
 ![Screenshot](screen1.png)
 
 ### 💡O que é GoBarber?
