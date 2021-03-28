@@ -44,6 +44,7 @@ const SignIn: React.FC = () => {
         });
 
         await signIn({ email: data.email, password: data.password });
+        console.log('fez login');
         history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
