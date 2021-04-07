@@ -36,6 +36,13 @@
 		"camelcase": "off",
 		"no-console": "off",
 		"allowIndentationTabs": true,
+		"no-useless-constructor": "off",
+		"@typescript-eslint/interface-name-prefix": [
+			"error",
+			{
+				"prefixWithI": "always"
+			}
+		],
 		"@typescript-eslint/no-unused-vars": [
 			"error",
 			{
@@ -48,3 +55,4 @@
 			}
 		}
 	}
+}
