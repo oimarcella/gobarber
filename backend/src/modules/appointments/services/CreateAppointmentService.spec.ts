@@ -13,6 +13,8 @@ describe('CreateAppointment', () => {
 			provider_id: '123456',
 		});
 
+		console.log('Hello World');
+
 		expect(appointment.provider_id).toBe('123456');
 	});
 	/* it('should not be able to create two appointments on the same time', () => {
