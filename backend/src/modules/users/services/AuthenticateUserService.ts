@@ -31,9 +31,10 @@ class AuthenticateUserService {
 		if (!user) throw new AppError('Incorrect email/password', 401);
 
 		const passwordIsCorrect = await compare(password, user.password);
-		if (!passwordIsCorrect) throw new AppError('Incorrect email/password', 401);
-
-		// delete user.password;
+		console.log('ispassword', passwordIsCorrect);
+		if (!passwordIsCorrect) {
+			throw new AppError('Incorrect email/password', 401);
+		}
 
 		const authenticationToken = sign({}, authConfig.jwt.secret, {
 			subject: user.id,
