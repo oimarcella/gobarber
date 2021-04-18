@@ -33,9 +33,9 @@ class CreateUserService {
 			password: hashedPassword,
 		});
 
-		delete user.password;
-
-		return user;
+		const newUser = { ...user };
+		delete newUser.password;
+		return newUser;
 	}
 }
 export default CreateUserService;
