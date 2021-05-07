@@ -7,12 +7,12 @@ class UsersRepository implements IUsersRepository {
 	private users: User[] = [];
 
 	public async findByEmail(email: string): Promise<User | undefined> {
-		const user = this.users.find(user => user.email === email);
+		const user = this.users.find(userElem => userElem.email === email);
 		return user;
 	}
 
 	public async findById(id: string): Promise<User | undefined> {
-		const user = this.users.find(user => user.id === id);
+		const user = this.users.find(userElem => userElem.id === id);
 		return user;
 	}
 
@@ -33,11 +33,6 @@ class UsersRepository implements IUsersRepository {
 		this.users[findByIndex] = user;
 		return user;
 	}
-
-	/* public async find(): Promise<Appointment[]> {
-		const appointments = await this.ormRepository.find();
-		return appointments;
-	} */
 }
 
 export default UsersRepository;
