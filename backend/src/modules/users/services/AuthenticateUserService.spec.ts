@@ -18,7 +18,7 @@ describe('AuthenticateUser', () => {
 			fakeHashProvider,
 		);
 
-		await createUserService.execute({
+		const user = await createUserService.execute({
 			name: 'John Doe',
 			email: 'johndoe@test.com',
 			password: 'johndoe',
@@ -30,6 +30,7 @@ describe('AuthenticateUser', () => {
 		});
 
 		expect(response).toHaveProperty('authenticationToken');
+		expect(response.user).toEqual(user);
 	});
 	it('should not be able to authenticate if user is not registered', async () => {
 		const fakeUserRepository = new FakeUserRepository();

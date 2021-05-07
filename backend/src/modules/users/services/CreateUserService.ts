@@ -34,9 +34,10 @@ class CreateUserService {
 			password: hashedPassword,
 		});
 
-		const copyOfCreateUser = { ...user };
-		delete copyOfCreateUser.password;
-		return copyOfCreateUser;
+		// const copyOfCreatedUser = { ...user };
+		// delete copyOfCreatedUser.password;
+		// return copyOfCreatedUser;
+		return user;
 	}
 }
 export default CreateUserService;
