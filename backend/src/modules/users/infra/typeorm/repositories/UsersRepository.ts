@@ -22,6 +22,7 @@ class UsersRepository implements IUsersRepository {
 		const foundUser = await this.ormRepository.findOne({
 			where: { id },
 		});
+
 		return foundUser;
 	}
 
