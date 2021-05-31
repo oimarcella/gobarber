@@ -50,8 +50,37 @@ describe('ResetPasswordService', () => {
 			}),
 		).rejects.toBeInstanceOf(AppError);
 	});
-});
+	it('should not be able to reset password with non-existing user', async () => {
+		const { token } = await fakeUserTokensRepository.generate(
+			'non-existing-user_id',
+		);
 
-// verificar
-// se está sendo feito hash da senha
-// se está dentro do intervalo de 2h pra fazer o reset da senha
+		await expect(
+			resetPassword.execute({
+				password: 'novasenhaxxx',
+				token,
+			}),
+		).rejects.toBeInstanceOf(AppError);
+	});
+	it('should not be able to reset password if has been passed 2 hours since token generation', async () => {
+		const user = await fakeUserRepository.create({
+			name: 'John Doe',
+			email: 'johndoe@test.com',
+			password: '123456',
+		});
+
+		const { token } = await fakeUserTokensRepository.generate(user.id);
+
+		jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+			const customDate = new Date();
+			return customDate.setHours(customDate.getHours() + 3);
+		});
+
+		await expect(
+			resetPassword.execute({
+				password: 'novasenhaxxx',
+				token,
+			}),
+		).rejects.toBeInstanceOf(AppError);
+	});
+});
