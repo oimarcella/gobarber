@@ -5,7 +5,7 @@ import authConfig from '@config/auth';
 
 import AppError from '@shared/errors/AppError';
 
-interface TokenPaylod {
+interface ITokenPaylod {
 	iat: number;
 	exp: number;
 	sub: string;
@@ -24,7 +24,7 @@ export default function ensureAuthentication(
 
 	try {
 		const decoded = verify(token, authConfig.jwt.secret);
-		const { sub } = decoded as TokenPaylod;
+		const { sub } = decoded as ITokenPaylod;
 		request.user = { id: sub };
 
 		return next();
